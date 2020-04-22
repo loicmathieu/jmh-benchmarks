@@ -1,0 +1,25 @@
+# Warmup: 3x3s, Recording: 5x5s, Java 11.0.6, Intel(R) Core(TM) i7-8750H 6 cores (12 with hyperthreading) – Ubuntu 19.10.
+ForVsStream.testForLoop_doNothing                  10  avgt    5      46,715 ±     4,581  ns/op
+ForVsStream.testForLoop_doNothing                1000  avgt    5    4581,216 ±   355,653  ns/op
+ForVsStream.testForLoop_doNothing               10000  avgt    5   45320,910 ±   670,446  ns/op
+ForVsStream.testStream_doNothing                   10  avgt    5      51,563 ±     3,682  ns/op
+ForVsStream.testStream_doNothing                 1000  avgt    5    3634,718 ±   513,237  ns/op
+ForVsStream.testStream_doNothing                10000  avgt    5   36757,820 ±  2956,085  ns/op
+ForVsStream.testForLoop_Accumulation               10  avgt    5      12,960 ±     0,809  ns/op
+ForVsStream.testForLoop_Accumulation             1000  avgt    5     749,318 ±    14,473  ns/op
+ForVsStream.testForLoop_Accumulation            10000  avgt    5    6679,846 ±    81,442  ns/op
+ForVsStream.testStream_AccumulationByMap           10  avgt    5      51,954 ±     3,562  ns/op
+ForVsStream.testStream_AccumulationByMap         1000  avgt    5    4638,615 ±   394,359  ns/op
+ForVsStream.testStream_AccumulationByMap        10000  avgt    5   52717,408 ±  4893,117  ns/op
+ForVsStream.testStream_AccumulationByReduce        10  avgt    5      33,495 ±     2,197  ns/op
+ForVsStream.testStream_AccumulationByReduce      1000  avgt    5    5635,545 ±   476,337  ns/op
+ForVsStream.testStream_AccumulationByReduce     10000  avgt    5   43167,492 ±  3646,626  ns/op
+ForVsStream.testForLoop_StringBuilder              10  avgt    5     148,218 ±    11,181  ns/op
+ForVsStream.testForLoop_StringBuilder            1000  avgt    5   19277,681 ±   524,130  ns/op
+ForVsStream.testForLoop_StringBuilder           10000  avgt    5  189820,108 ± 39519,566  ns/op
+ForVsStream.testStream_StringBuilderByForEach      10  avgt    5     124,379 ±     4,701  ns/op
+ForVsStream.testStream_StringBuilderByForEach    1000  avgt    5   19643,228 ±  1296,197  ns/op
+ForVsStream.testStream_StringBuilderByForEach   10000  avgt    5  179761,808 ± 17014,818  ns/op
+ForVsStream.testStream_StringBuilderByJoining      10  avgt    5     242,916 ±    27,689  ns/op
+ForVsStream.testStream_StringBuilderByJoining    1000  avgt    5   19560,014 ±  3750,284  ns/op
+ForVsStream.testStream_StringBuilderByJoining   10000  avgt    5  207933,016 ± 17316,623  ns/op
