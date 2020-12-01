@@ -1,0 +1,77 @@
+Secondary result "fr.loicmathieu.jmh.LongToByteArray.testByteBuffer:·perf":
+Perf stats:
+--------------------------------------------------
+
+         24 692,90 msec task-clock                #    0,720 CPUs utilized
+            17 565      context-switches          #    0,711 K/sec
+             1 142      cpu-migrations            #    0,046 K/sec
+               153      page-faults               #    0,006 K/sec
+    95 744 277 797      cycles                    #    3,877 GHz                      (38,24%)
+   265 311 135 276      instructions              #    2,77  insn per cycle           (46,16%)
+    28 319 804 120      branches                  # 1146,880 M/sec                    (46,30%)
+        10 215 768      branch-misses             #    0,04% of all branches          (46,44%)
+
+
+
+Secondary result "fr.loicmathieu.jmh.LongToByteArray.testByteBuffer_reuse:·perf":
+Perf stats:
+--------------------------------------------------
+
+         24 263,98 msec task-clock                #    0,708 CPUs utilized
+               885      context-switches          #    0,036 K/sec
+                58      cpu-migrations            #    0,002 K/sec
+               195      page-faults               #    0,008 K/sec
+    90 968 460 403      cycles                    #    3,749 GHz                      (38,50%)
+   285 674 338 428      instructions              #    3,14  insn per cycle           (46,21%)
+    43 946 097 931      branches                  # 1811,166 M/sec                    (46,24%)
+         1 551 430      branch-misses             #    0,00% of all branches          (46,24%)
+
+
+
+Secondary result "fr.loicmathieu.jmh.LongToByteArray.testGuava:·perf":
+Perf stats:
+--------------------------------------------------
+
+         24 590,92 msec task-clock                #    0,718 CPUs utilized
+            12 099      context-switches          #    0,492 K/sec
+             1 208      cpu-migrations            #    0,049 K/sec
+               152      page-faults               #    0,006 K/sec
+    88 726 325 368      cycles                    #    3,608 GHz                      (38,28%)
+   322 202 105 944      instructions              #    3,63  insn per cycle           (45,96%)
+    17 842 754 452      branches                  #  725,583 M/sec                    (46,02%)
+         6 862 089      branch-misses             #    0,04% of all branches          (46,21%)
+
+
+
+Secondary result "fr.loicmathieu.jmh.LongToByteArray.testKafkaSerde:·perf":
+Perf stats:
+--------------------------------------------------
+
+         24 770,20 msec task-clock                #    0,722 CPUs utilized
+            16 900      context-switches          #    0,682 K/sec
+             1 657      cpu-migrations            #    0,067 K/sec
+               189      page-faults               #    0,008 K/sec
+    90 517 922 928      cycles                    #    3,654 GHz                      (38,36%)
+   266 002 043 627      instructions              #    2,94  insn per cycle           (45,97%)
+    21 655 608 905      branches                  #  874,261 M/sec                    (46,04%)
+         8 444 575      branch-misses             #    0,04% of all branches          (45,88%)
+
+
+
+Result "fr.loicmathieu.jmh.LongToByteArray.testStringValueOf":
+  40,950 ±(99.9%) 4,573 ns/op [Average]
+  (min, avg, max) = (39,271, 40,950, 42,338), stdev = 1,188
+  CI (99.9%): [36,377, 45,523] (assumes normal distribution)
+
+Secondary result "fr.loicmathieu.jmh.LongToByteArray.testStringValueOf:·perf":
+Perf stats:
+--------------------------------------------------
+
+         24 510,11 msec task-clock                #    0,715 CPUs utilized
+             8 938      context-switches          #    0,365 K/sec
+               746      cpu-migrations            #    0,030 K/sec
+               132      page-faults               #    0,005 K/sec
+    86 832 974 647      cycles                    #    3,543 GHz                      (38,46%)
+   281 932 905 253      instructions              #    3,25  insn per cycle           (46,38%)
+    53 808 628 539      branches                  # 2195,364 M/sec                    (46,48%)
+         6 130 006      branch-misses             #    0,01% of all branches          (46,49%)

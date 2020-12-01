@@ -46,6 +46,17 @@ If you don't want to run it by yourself, you can find the results [here](run/For
 
 I wrote an article (in french) that tries to explain what we saw on this benchmark: [FOR VS STREAM](https://www.loicmathieu.fr/wordpress/informatique/for-vs-stream/)
 
+## LongToByteArray benchmark
+This benchmark compare the performance of a convertion of a long to a byte array.<br/>
+You can find the source of this benchmark here: [LongToByteArray.java](src/main/java/fr/loicmathieu/jmh/LongToByteArray.java)
+
+To run it after having build the benchmark jar, use the following command:
+
+```
+java -jar target/benchmarks.jar LongToByteArray -f 1
+```
+
+If you don't want to run it by yourself, you can find the results [here](run/LongToByteArray/results.txt).
 
 
 

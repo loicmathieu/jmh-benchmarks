@@ -1,0 +1,7 @@
+# Warmup: 3x3s, Recording: 5x5s, Java 11.0.7, Intel(R) Core(TM) i7-8750H 6 cores (12 with hyperthreading) – Ubuntu 19.10.
+Benchmark                             Mode  Cnt   Score   Error  Units
+LongToByteArray.testByteBuffer        avgt    5   4,429 ± 0,204  ns/op
+LongToByteArray.testByteBuffer_reuse  avgt    5   5,655 ± 0,793  ns/op
+LongToByteArray.testGuava             avgt    5   6,422 ± 0,428  ns/op
+LongToByteArray.testKafkaSerde        avgt    5   9,103 ± 1,515  ns/op
+LongToByteArray.testStringValueOf     avgt    5  39,660 ± 4,372  ns/op
