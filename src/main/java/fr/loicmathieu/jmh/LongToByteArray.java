@@ -28,7 +28,8 @@ public class LongToByteArray {
 
     long timestamp;
     ByteBuffer perThreadBuffer;
-
+    byte result[] = new byte[8];
+    
     @Setup
     public void setup() {
         timestamp = System.currentTimeMillis();
@@ -63,6 +64,20 @@ public class LongToByteArray {
         byte[] result = perThreadBuffer.array();
         perThreadBuffer.clear();
         return result;
+    }
+
+    @Benchmark
+    public byte[] testCodingameLike() {
+      result[0] = (byte)(timestamp >>> 56 & 0b11111111);
+      result[1] = (byte)(timestamp >>> 48 & 0b11111111);
+      result[2] = (byte)(timestamp >>> 40 & 0b11111111);
+      result[3] = (byte)(timestamp >>> 32 & 0b11111111);
+      result[4] = (byte)(timestamp >>> 24 & 0b11111111);
+      result[5] = (byte)(timestamp >>> 16 & 0b11111111);
+      result[6] = (byte)(timestamp >>> 8  & 0b11111111);
+      result[7] = (byte)(timestamp >>> 0  & 0b11111111);
+      
+      return result;
     }
 
     public static void main(String[] args) throws RunnerException {
