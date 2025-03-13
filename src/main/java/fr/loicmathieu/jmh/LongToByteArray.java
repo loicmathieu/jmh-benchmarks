@@ -28,7 +28,8 @@ public class LongToByteArray {
 
     long timestamp;
     ByteBuffer perThreadBuffer;
-
+    byte result[] = new byte[8];
+    
     @Setup
     public void setup() {
         timestamp = System.currentTimeMillis();
@@ -64,6 +65,62 @@ public class LongToByteArray {
         perThreadBuffer.clear();
         return result;
     }
+
+    /**
+     * long is 64 bits, so need an 8 bytes array
+     * 
+     * to 'project' the 64 bits into the array of bytes, for each byte in the long (for i=7..0):  
+     *    . we shift right the timestamp 8*i bits, 
+     *    . mask the result with 8 bits (length of a byte) to clear the remaining bits
+     *    . cast and put it in the corresponding index of the byte array
+     * 
+     * 
+     * Exemple : 11001101-01100011-....(remaining 48 bits)
+     * result[0] : 
+     *   shift 8*7 => 00000000-....-00000000-11001101
+     *   mask 0b11111111 =>    ....-00000000-11001101
+     *   cast => 11001101
+     *  
+     * result[1] :
+     *   shift 8*6 => 00000000-....-11001101-01100011
+     *   mask 0b11111111 =>     ...-00000000-01100011
+     *   cast => 01100011
+     * 
+     * etc..
+     * 
+     * @return the array of bytes representing the timestamp as a, array of bytes
+     */
+    @Benchmark
+    public byte[] testCodingameStyle() {
+      result[0] = (byte)(timestamp >>> 8*7 & 0b11111111);
+      result[1] = (byte)(timestamp >>> 8*6 & 0b11111111);
+      result[2] = (byte)(timestamp >>> 8*5 & 0b11111111);
+      result[3] = (byte)(timestamp >>> 8*4 & 0b11111111);
+      result[4] = (byte)(timestamp >>> 8*3 & 0b11111111);
+      result[5] = (byte)(timestamp >>> 8*2 & 0b11111111);
+      result[6] = (byte)(timestamp >>> 8*1 & 0b11111111);
+      result[7] = (byte)(timestamp >>> 8*0 & 0b11111111);
+      
+      return result;
+    }
+    
+    /*
+     * Same as testCodingameStyle, but the mask is removed as the cast do the job implicitly
+     */
+    @Benchmark
+    public byte[] testCodingameStyleWithImplicitMask() {
+      result[0] = (byte)(timestamp >>> 8*7);
+      result[1] = (byte)(timestamp >>> 8*6);
+      result[2] = (byte)(timestamp >>> 8*5);
+      result[3] = (byte)(timestamp >>> 8*4);
+      result[4] = (byte)(timestamp >>> 8*3);
+      result[5] = (byte)(timestamp >>> 8*2);
+      result[6] = (byte)(timestamp >>> 8*1);
+      result[7] = (byte)(timestamp >>> 8*0);
+      
+      return result;
+    }
+
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
